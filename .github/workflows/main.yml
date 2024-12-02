@@ -1,0 +1,32 @@
+name: Test find_lowest_number.py
+
+on: [push]
+jobs:
+  test:
+    name: Assignment 11
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+
+    - name: Run Test 1 - Execute File
+      run: python find_lowest_number.py test_data/test1_input.txt output1.txt
+    
+    - name: Run Test 1 - Compare Output
+      run: diff output1.txt test_data/test1_expected.txt
+    
+    - name: Run Test 2 - Execute File
+      run: python find_lowest_number.py test_data/test2_input.txt output2.txt
+    
+    - name: Run Test 2 - Compare Output
+      run: diff output2.txt test_data/test2_expected.txt
+    
+    - name: Run Test 3 - Execute File
+      run: python find_lowest_number.py test_data/test3_input.txt output3.txt
+    
+    - name: Run Test 3 - Compare Output
+      run: diff output3.txt test_data/test3_expected.txt
